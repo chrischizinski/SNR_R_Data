@@ -73,7 +73,7 @@ Lets begin to explore this with the coarse woody debris data in lakes.  `christ`
 
 
 {% highlight r %}
-cwd_data <- read_csv(getURL('https://raw.githubusercontent.com/chrischizinski/SNR_R_Group/master/data/ExperimentalDesignData/chpt5/christ.csv'))
+cwd_data <- read_csv(getURL('https://raw.githubusercontent.com/chrischizinski/SNR_R_Group/master/data/ExperimentalDesignData/chpt05/christ.csv'))
 
 glimpse(cwd_data)
 {% endhighlight %}
@@ -462,7 +462,7 @@ ggplot(data = fitted_vals) +
 
 ##### Residuals
 
-This difference between each observed  \\( \y_{i} \\) and each predicted \\( \hat{y_i} \\) is called a residual \\( \e_{i} \\):
+This difference between each observed  \\( y_{i} \\) and each predicted \\( \hat{y_i} \\) is called a residual \\( e_{i} \\):
 
 $$ e_i = y_i - \hat{y_i} $$
 
@@ -513,7 +513,7 @@ ggplot(data = fitted_vals) +
 
 - The \\( SS_{total} \\) increases with sample size.  The Mean SS is a measure of variability that does not depend on sample size.  MS is calculated by dividing SS by their df and thus, are not additive.  
 
-- The \\( MS_{Residual} \\) estimates the common variance of the error terms \\( \e_{i} \\), and therefore of the Y-values at each \\( x_i )\\.  **NOTE** a key assumption is homogeneity of variances. 
+- The \\( MS_{Residual} \\) estimates the common variance of the error terms \\( e_{i} \\), and therefore of the Y-values at each \\( x_i \\).  **NOTE** a key assumption is homogeneity of variances. 
 
 We can calculate the ANOVA table from our linear model in R by using the `anova()` statment. 
 
@@ -530,11 +530,11 @@ tidy(anova(mod_cwd))
 ## 2 Residuals 14  315769.8   22554.98        NA             NA
 {% endhighlight %}
 
-#### Variance explaned ( \\(r^2\\) or \\(R^2) \\))
+#### Variance explaned ( \\(r^2\\) or \\( R^2 \\))
 
 - descriptive measure of association between Y and X (also termed coefficient of variation). the proportion of the total variation in Y that is explained by its linear relationship with X. 
 
-- \\( 1 = \frac{SS_{residual}}{SS_{total}}
+- \\( 1 = \frac{SS_{residual}}{SS_{total}} \\)
 
 ####  Scatterplot with marginal boxplots
 
@@ -639,7 +639,7 @@ grid.draw(gt)
   
 ##### Leverage 
 
-- Leverage is a measure of how extreme an observation is for the \\(X)\\-variable
+- Leverage is a measure of how extreme an observation is for the \\(X \\)-variable
 
 - Generally concerned when a value is 2 or 3 times greater than the mean value
 
@@ -712,9 +712,9 @@ outlierTest(mod_cwd)
 
 ##### Influence
 
-- Cook’s distance statistic, \\( D_i )\\, is the measure of the influence each observation has on the fitted regression line and the estimates of the regression parameters.
+- Cook’s distance statistic, \\( D_i \\), is the measure of the influence each observation has on the fitted regression line and the estimates of the regression parameters.
 
-- A large \\( D_i )\\ indicates that removal of that observation would change the estimates of the regression parameters considerably
+- A large \\( D_i \\) indicates that removal of that observation would change the estimates of the regression parameters considerably
 
 
 {% highlight r %}
@@ -736,9 +736,9 @@ ggplot(data = fitted_vals3)  +
 
 - Responses are averages with known sample sizes
 - Responses are estimates and SEs are available
-  - \\( w_i = \frac{1}{se(Y_i)^2} )\\
+  - \\( w_i = \frac{1}{se(Y_i)^2} \\)
 - Variance is proportional to X
-  -  \\( w_i = \frac{1}{X_i} )\\ or \\( w_i = \frac{1}{X_i^2} )\\
+  -  \\( w_i = \frac{1}{X_i} \\) or \\( w_i = \frac{1}{X_i^2} \\)
 
 
 {% highlight r %}
@@ -867,11 +867,11 @@ ggplot(data = fake_pred) +
 - Model II Regression and the approach is controversial
 - If the purpose of regression is **prediction**, then OLS 
 - If the purpose of regression is **mechanisms**, then **not** OLS (?)
-  - error variability associated with both Y \\( \sigma_\epsilon^2 \\) and X \\( \sigma_\gamma^2 \\) and the OLS estimate of \\( \beta_1 \\) is biased towards zero 
+  - error variability associated with both Y \\( \sigma_{\epsilon}^2 \\) and X \\( \sigma_{\gamma}^2 \\) and the OLS estimate of \\( \beta_1 \\) is biased towards zero 
 - Major axis (MA) regression fits line minimizing the sum of squared perpendicular distances from each observation to the fitted line
-  - \\( \sigma_\epsilon^2 \\) = \\( \sigma_\gamma^2 \\)
+  - \\( \sigma_{\epsilon}^2 \\) = \\( \sigma_{\gamma}^2 \\)
 - Reduced major axis (RMA) regression or standard major axis (SMA) regression is fitted by minimizing the sum of areas of the triangles formed by vertical and horizontal lines from each observation to the fitted line
- - \\( \sigma_\epsilon^2 \propto \sigma_\x^2\\) and \\( \sigma_\gamma^2 \propto \sigma_\y^2\\)
+ - \\( \sigma_{\epsilon}^2 \propto \sigma_x^2 \\) and \\( \sigma_{\gamma}^2 \propto \sigma_y^2\\)
  
  
 
@@ -936,7 +936,7 @@ Ex2.res
     
 ##### M-estimator
 
-- M-estimators involve minimizing the sum of some function of \\( e_i )\\
+- M-estimators involve minimizing the sum of some function of \\( e_i \\)
 - Huber M-estimators, [described earlier](https://chrischizinski.github.io/SNR_R_Group/2016-10-07-REstimation), weight the observations differently depending how far they are from the central tendency
 
 
